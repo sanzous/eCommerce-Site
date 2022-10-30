@@ -1,6 +1,8 @@
 import React from 'react'
+import Link from 'next/link'
+import urlFor from '../lib/client'
 
-const Product = () => {
+const Product = ({ product }) => {
     return (
         <div>Product</div>
     )
