@@ -12,6 +12,7 @@ const Cart = () => {
     const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext()
     const handleCheckout = async () => {
         const stripe = await getStripe();
+        console.log(stripe)
         const response = await fetch('/api/stripe', {
             method: 'POST',
             headers: {
