@@ -1,6 +1,7 @@
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY)
+console.log(stripe)
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
@@ -39,6 +40,7 @@ export default async function handler(req, res) {
             // Create Checkout Sessions from body params.
             const session = await stripe.checkout.sessions.create(params);
             res.status(200).json(session)
+
         } catch (err) {
             console.log
             res.status(err.statusCode || 500).json(err.message);
